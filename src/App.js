@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import "./App.css";
-import abi from "./utils/WavePortal.json"
+import abi from "./utils/WavePortal.json";
 
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = "0xa6696027419fBB2771897Cc9D7ba74DF614651d2";
   const contractABI = abi.abi;
 
   const checkIfWalletIsConnected = async () => {
@@ -63,7 +63,7 @@ const App = () => {
       if (ethereum){
         //ethers is a  library that helps the frontend talk to the contract
         //provdider is what we use to talk to Ethereum nodes
-        const provider = new ethers.provider.Web3Provider(ethereum);
+        const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
 
