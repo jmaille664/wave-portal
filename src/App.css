@@ -1,8 +1,20 @@
+
+body{
+  background-color:#151C2F;
+  font: white;
+  font-family: Print Clearly;
+}
 .mainContainer {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 64px;
+  font: #8992B1;
+}
+
+h1{
+  font: #8992B1;
+  font-size: 5rem;
 }
 
 .dataContainer {
@@ -10,30 +22,36 @@
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  font: #8992B1;
+  
 }
 
 .header {
   text-align: center;
   font-size: 32px;
   font-weight: 600;
+  color: #8992B1;
 }
 
 .bio {
   text-align: center;
-  color: black;
+  color: #8992B1;
   margin-top: 16px;
+  font-size: 1.2rem;
 }
 
 .waveButton {
   cursor: pointer;
   margin-top: 16px;
-  padding: 8px;
+  padding: 20px;
   border: 0;
   border-radius: 5px;
-  background: #D80EB3;
+  background: #444C73;
   color: #FFFFFF;
+  font-family: Print Clearly;
+  font-size: 1.5rem;
 }
 
 .waveButton:hover{
-  background: #95067b;
+  background: #656EA4;
 }

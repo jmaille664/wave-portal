@@ -96,11 +96,15 @@ const App = () => {
     <div className="mainContainer">
       <div className="dataContainer">
         <div className="header">
-        👋 Hello!
+          <h1>
+          👋 Hello!
+        </h1>
         </div>
 
         <div className="bio">
+          <h2>
           Connect your Ethereum wallet and wave at me!
+          </h2>
         </div>
 
         <button className="waveButton" onClick={wave}>
@@ -115,6 +119,7 @@ const App = () => {
             Connect Wallet
           </button>
         )}
+        
       </div>
     </div>
   );
