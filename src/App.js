@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { ethers } from "ethers";
 import "./App.css";
+import abi from "./utils/WavePortal.json"
+
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
+
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractABI = abi.abi;
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -29,9 +35,8 @@ const App = () => {
     }
   }
 
-  /**
-  * Implement your connectWallet method here
-  */
+  //Implement the connectWallet method
+  
   const connectWallet = async () => {
     try {
       const { ethereum } = window;
@@ -50,6 +55,39 @@ const App = () => {
     }
   }
 
+  //calling wave function
+  const wave = async ()=> {
+    try {
+      const {ethereum} = window;
+
+      if (ethereum){
+        //ethers is a  library that helps the frontend talk to the contract
+        //provdider is what we use to talk to Ethereum nodes
+        const provider = new ethers.provider.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+        let count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count.", count.toNumber());
+
+        //Execute wave from smart contract
+        const waveTransaction = await wavePortalContract.wave();
+        console.log("mining.", waveTransaction.hash);
+        
+        await waveTransaction.wait();
+        console.log("Mined --", waveTransaction.hash);
+
+        count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count.", count.toNumber());
+
+      } else {
+        console.log("Ethereum object does not exist.");
+      } 
+    }catch (error){
+        console.log(error);
+      }
+    }
+  
   useEffect(() => {
     checkIfWalletIsConnected();
   }, [])
@@ -65,7 +103,7 @@ const App = () => {
           Connect your Ethereum wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={null}>
+        <button className="waveButton" onClick={wave}>
           Wave at Me
         </button>
 
