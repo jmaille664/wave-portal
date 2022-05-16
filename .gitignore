@@ -2,8 +2,14 @@
 
 # dependencies
 /node_modules
+.env
 /.pnp
 .pnp.js
+coverage
+coverage.json
+typechain
+cache
+artifacts
 
 # testing
 /coverage
