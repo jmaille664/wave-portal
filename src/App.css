@@ -55,3 +55,15 @@ h1{
 .waveButton:hover{
   background: #656EA4;
 }
+
+.user-message{
+  margin-top: 16px;
+  padding: 20px;
+  border: 0;
+  border-radius: 5px;
+  background: white;
+  font: #8992B1;
+  font-family: Print Clearly;
+  font-size: 1.5rem;
+
+}
