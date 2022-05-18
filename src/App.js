@@ -136,7 +136,7 @@ const App = () => {
         console.log("Retrieved total wave count.", count.toNumber());
 
         //Execute wave from smart contract and set gas limit
-        const waveTransaction = await wavePortalContract.wave(userMessage, {gasLimit: 300000});
+        const waveTransaction = await wavePortalContract.wave(userMessage);
         console.log("mining.", waveTransaction.hash);
 
         await waveTransaction.wait();
