@@ -7,7 +7,7 @@ const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [allWaves, setAllWaves] = useState([]);
 
-  const contractAddress = "0x3D946D9D5c125Ea98E6EF51CC8A6d7d77e597681";
+  const contractAddress = "0xCE5d504A140eeBB3895096e6449eb3ED8f6283e8";
   const contractABI = abi.abi;
 
   const getAllWaves = async () => {
@@ -142,7 +142,7 @@ const App = () => {
 
         <div className="bio">
           <h2>Connect your Ethereum wallet and wave at me!</h2>
-          <h3>You will need a MetaMask wallet in order to wave</h3>
+          <h3>You will need a MetaMask wallet and Rinkeby Test Network funds in order to wave</h3>
         </div>
 
 <input type="text" id="userMessage" className="user-message" placeholder="Type your message here"/>
@@ -161,7 +161,7 @@ const App = () => {
 
 {allWaves.map((wave, index) => {
           return (
-            <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px", borderRadius:"5px", fontFamily: "Print Clearly", font: "#8992B1"}}>
+            <div key={index} style={{ backgroundColor: "white", marginTop: "16px", padding: "8px", borderRadius:"5px", fontFamily: "Print Clearly", font: "#8992B1"}}>
               <div>Time: {wave.timestamp.toString()}</div>
               <div>Message: {wave.message}</div>
             </div>)
